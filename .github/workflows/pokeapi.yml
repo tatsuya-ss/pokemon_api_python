@@ -2,7 +2,7 @@ name: PokeAPI Fetch
 
 on:
   schedule:
-    - cron: "0 * * * *"  # 毎時 0分（1時間ごと）に実行（確認しやすいように変更）
+    - cron: "0 0 * * *"  # 毎日 00:00 UTC に実行（JST 9:00）
   workflow_dispatch:  # 手動実行も可能
 
 jobs:
