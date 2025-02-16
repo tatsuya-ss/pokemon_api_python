@@ -1,0 +1,25 @@
+name: PokeAPI Fetch
+
+on:
+  schedule:
+    - cron: "0 * * * *"  # 毎時 0分（1時間ごと）に実行（確認しやすいように変更）
+  workflow_dispatch:  # 手動実行も可能
+
+jobs:
+  fetch_pokemon:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Python をセットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 依存関係をインストール
+        run: pip install requests
+
+      - name: PokeAPI を叩くスクリプトを実行
+        run: python pokemon.py
